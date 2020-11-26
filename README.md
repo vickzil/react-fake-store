@@ -1,4 +1,4 @@
-This is a single page React Application for Future X Digital. It is a responsive small ecommerce application for started projects and easy navigation system.. please visit https://reactfakestore.netlify.app/ to view demo.
+This is a single page React Application for Future X Digital. It is a responsive small ecommerce application for starter projects and easy navigation system.. please visit https://reactfakestore.netlify.app/ to view demo.
 
 ## Getting started
 
