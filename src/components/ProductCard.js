@@ -3,7 +3,7 @@
 
 import React from 'react'
 import { connect } from "react-redux";
-
+import { noficationMessage } from './notifications/nofication'
 import { addToCart } from "../redux/shopping/shopping-actions";
 
 function ProductCard({product, addToCart}) {
@@ -17,7 +17,7 @@ function ProductCard({product, addToCart}) {
                     <a>{product.title}</a>
                 </h5>
                 <h6>&#8358;{product.price}</h6>
-                <button onClick={() => addToCart(product.id)} className="btn btn-outline-dark font-weight-bold mt-4">
+                <button onClick={() => {addToCart(product.id); noficationMessage("Added to cart");}} className="btn btn-outline-dark font-weight-bold mt-4">
                     Add To Cart
                 </button>
             </div>

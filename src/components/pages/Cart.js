@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react'
 import paystackImage from '../../images/paystack.png'
 import StripeCheckout from 'react-stripe-checkout'
@@ -7,10 +8,9 @@ import CartItem from '../CartItem'
 import {
   clearCart
 } from "../../redux/shopping/shopping-actions";
-import 'react-toastify/dist/ReactToastify.css'
-import { toast } from 'react-toastify';
 
-toast.configure();
+import { noficationMessage } from '../notifications/nofication'
+
 
  const Cart = ({cart, clearCart}) => {
 
@@ -35,10 +35,11 @@ toast.configure();
     // PROCESS PAYMENT/ HANDLE TOKEN
     const handleToken = (token) => {
         if(token){ 
-            clearCart(); 
-            toast.success("Success!! Product purchased", { position: toast.POSITION.TOP_RIGHT});
+            clearCart();
+            noficationMessage("Success!! Product purchased");
+            
         } else {
-            toast.error("Something went wrong", { position: toast.POSITION.TOP_RIGHT});
+            noficationMessage("Something went wrong");
         }
     }
 
@@ -73,7 +74,7 @@ toast.configure();
                                         </tbody>
                                     </table>
                                     <div className="text-center">
-                                        <button className="checkout_btn btn btn-danger" onClick={() => clearCart()}>
+                                        <button className="checkout_btn btn btn-danger" onClick={() => {clearCart(); noficationMessage("Cart Cleared!!");}}>
                                             <i className="fa fa-trash mr-2" aria-hidden="true"></i> Clear Cart
                                         </button>
                                     </div>

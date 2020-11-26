@@ -5,7 +5,7 @@ import {
   adjustItemQty,
   removeFromCart,
 } from "../redux/shopping/shopping-actions";
-
+import { noficationMessage } from './notifications/nofication'
 
 function CartItem({ item, adjustQty, removeFromCart }) {
 
@@ -31,7 +31,7 @@ function CartItem({ item, adjustQty, removeFromCart }) {
             <td>
                 &#8358;{Math.trunc(item.price * input)}.00 <br></br>
                 <div className="float-right text-center delete_btn">
-                    <i onClick={() => removeFromCart(item.id)} className="fa fa-times" aria-hidden="true"></i>
+                    <i onClick={() => {removeFromCart(item.id); noficationMessage("Product Removed");}} className="fa fa-times" aria-hidden="true"></i>
                 </div>
             </td>
 
